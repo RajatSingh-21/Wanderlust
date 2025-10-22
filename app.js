@@ -91,7 +91,7 @@ app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
 app.use("/listings/category", categoryRouter);
 
-app.get("/", (req, res) => {
+app.get("/listings", (req, res) => {
   res.send("Server running successfully");
 });
 

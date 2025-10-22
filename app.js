@@ -91,12 +91,12 @@ app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
 // app.use("/listings/category", categoryRouter);
 
-app.listen("8080", () => {
-  console.log("app is listening on 8080");
-});
-
 app.get("/", (req, res) => {
   res.send("Server running successfully");
+});
+
+app.listen("8080", () => {
+  console.log("app is listening on 8080");
 });
 
 //ERROR HANDLING MIDDLEWARES

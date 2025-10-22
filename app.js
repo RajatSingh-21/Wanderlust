@@ -20,7 +20,7 @@ const User = require("./models/user.js");
 const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
-// const categoryRouter = require("./routes/category.js");
+const categoryRouter = require("./routes/category.js");
 
 //MAIN CODE
 const dbUrl = process.env.ATLASDB_URL;
@@ -89,7 +89,7 @@ app.use((req, res, next) => {
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
-// app.use("/listings/category", categoryRouter);
+app.use("/listings/category", categoryRouter);
 
 app.listen("8080", () => {
   console.log("app is listening on 8080");

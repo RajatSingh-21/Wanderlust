@@ -91,19 +91,18 @@ app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
 app.use("/listings/category", categoryRouter);
 
-app.get("/listings", (req, res) => {
+app.get("/", (req, res) => {
   res.send("Server running successfully");
 });
 
 app.listen("8080", () => {
   console.log("app is listening on 8080");
 });
-
+app.all("*", (req, res, next) => {
+  next(new ExpressError(404, "Page not found"));
+});
 //ERROR HANDLING MIDDLEWARES
 app.use((err, req, res, next) => {
   let { statusCode = 500, message = "something went wrong" } = err;
   res.render("Error.ejs", { message });
-});
-app.all("*", (req, res, next) => {
-  next(new ExpressError(404, "Page not found"));
 });

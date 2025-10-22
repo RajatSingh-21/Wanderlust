@@ -48,7 +48,7 @@ router.get(
     res.render("./listing/category/castles.ejs", { listings });
   })
 );
-route.get(
+router.get(
   "/pools",
   isLoggedIn,
   wrapAsync(async (req, res) => {

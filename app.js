@@ -89,7 +89,7 @@ app.use((req, res, next) => {
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
-app.use("/listings/category", categoryRouter);
+// app.use("/listings/category", categoryRouter);
 
 app.listen("8080", () => {
   console.log("app is listening on 8080");

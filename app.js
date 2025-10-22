@@ -95,6 +95,10 @@ app.listen("8080", () => {
   console.log("app is listening on 8080");
 });
 
+app.get("/", (req, res) => {
+  res.send("Server running successfully");
+});
+
 //ERROR HANDLING MIDDLEWARES
 app.use((err, req, res, next) => {
   let { statusCode = 500, message = "something went wrong" } = err;

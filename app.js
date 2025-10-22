@@ -36,7 +36,7 @@ async function main() {
   await mongoose.connect(dbUrl);
 }
 //uses
-app.set("view Engine", "ejs");
+app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
@@ -51,7 +51,7 @@ const store = MongoStore.create({
   touchAfter: 24 * 3600,
 });
 
-store.on("error", () => {
+store.on("error", (err) => {
   console.log("Error in Mongo Session Store", err);
 });
 

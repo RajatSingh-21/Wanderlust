@@ -90,6 +90,11 @@ app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
 app.use("/listings/category", categoryRouter);
+
+app.listen("8080", () => {
+  console.log("app is listening on 8080");
+});
+
 //ERROR HANDLING MIDDLEWARES
 app.use((err, req, res, next) => {
   let { statusCode = 500, message = "something went wrong" } = err;
@@ -97,7 +102,4 @@ app.use((err, req, res, next) => {
 });
 app.all("*", (req, res, next) => {
   next(new ExpressError(404, "Page not found"));
-});
-app.listen("8080", () => {
-  console.log("app is listening on 8080");
 });

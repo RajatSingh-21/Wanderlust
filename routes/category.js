@@ -28,7 +28,7 @@ router.get(
   isLoggedIn,
   wrapAsync(async (req, res) => {
     const listings = await Listing.find({});
-    res.render("./listing/category/mountains.ejs", { listings });
+    res.render("./listing/category/Mountains.ejs", { listings });
   })
 );
 router.get(

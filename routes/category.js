@@ -8,63 +8,72 @@ const multer = require("multer");
 const { storage } = require("../cloudConfig.js");
 const upload = multer({ storage });
 
-router.route("/domes").get(
+router.get(
+  "/domes",
   isLoggedIn,
   wrapAsync(async (req, res) => {
     const listings = await Listing.find({});
     res.render("./listing/category/Domes.ejs", { listings });
   })
 );
-router.route("/rooms").get(
+router.get(
+  "/rooms",
   isLoggedIn,
   wrapAsync(async (req, res) => {
     const listings = await Listing.find({});
     res.render("./listing/category/Rooms.ejs", { listings });
   })
 );
-router.route("/mountains").get(
+router.get(
+  "/mountains",
   isLoggedIn,
   wrapAsync(async (req, res) => {
     const listings = await Listing.find({});
     res.render("./listing/category/mountains.ejs", { listings });
   })
 );
-router.route("/iconic_cities").get(
+router.get(
+  "iconic_cities",
   isLoggedIn,
   wrapAsync(async (req, res) => {
     const listings = await Listing.find({});
     res.render("./listing/category/iconic_cities.ejs", { listings });
   })
 );
-router.route("/castles").get(
+router.get(
+  "/castles",
   isLoggedIn,
   wrapAsync(async (req, res) => {
     const listings = await Listing.find({});
     res.render("./listing/category/castles.ejs", { listings });
   })
 );
-router.route("/pools").get(
+route.get(
+  "/pools",
   isLoggedIn,
   wrapAsync(async (req, res) => {
     const listings = await Listing.find({});
     res.render("./listing/category/pools.ejs", { listings });
   })
 );
-router.route("/camping").get(
+router.get(
+  "/camping",
   isLoggedIn,
   wrapAsync(async (req, res) => {
     const listings = await Listing.find({});
     res.render("./listing/category/camping.ejs", { listings });
   })
 );
-router.route("/farm").get(
+router.get(
+  "/farm",
   isLoggedIn,
   wrapAsync(async (req, res) => {
     const listings = await Listing.find({});
     res.render("./listing/category/farms.ejs", { listings });
   })
 );
-router.route("/arctic").get(
+router.get(
+  "arctic",
   isLoggedIn,
   wrapAsync(async (req, res) => {
     const listings = await Listing.find({});

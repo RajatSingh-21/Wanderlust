@@ -94,7 +94,7 @@ app.use("/", userRouter);
 app.listen("8080", () => {
   console.log("app is listening on 8080");
 });
-app.get("/", (req, res) => {
+app.get("/listings", (req, res) => {
   res.send("Server running successfully");
 });
 app.all("*", (req, res, next) => {

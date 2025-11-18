@@ -32,11 +32,11 @@ router.get(
   })
 );
 router.get(
-  "iconic_cities",
+  "/cities",
   isLoggedIn,
   wrapAsync(async (req, res) => {
     const listings = await Listing.find({});
-    res.render("./listing/category/iconic_cities.ejs", { listings });
+    res.render("./listing/category/cities.ejs", { listings });
   })
 );
 router.get(
@@ -72,7 +72,7 @@ router.get(
   })
 );
 router.get(
-  "arctic",
+  "/arctic",
   isLoggedIn,
   wrapAsync(async (req, res) => {
     const listings = await Listing.find({});

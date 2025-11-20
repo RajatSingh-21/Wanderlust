@@ -8,6 +8,25 @@ const { storage } = require("../cloudConfig.js");
 const upload = multer({ storage });
 
 router.get(
+  "/trending",
+  isLoggedIn,
+  wrapAsync(async (req, res) => {
+    const listings = await Listing.find({});
+    res.render("./listing/category/trending.ejs", { listings });
+  })
+);
+
+router.post(
+  "/search",
+  isLoggedIn,
+  wrapAsync(async (req, res) => {
+    let { search } = req.params;
+    const listings = await Listing.find({});
+    res.render("./listing/category/search.ejs", { listings });
+  })
+);
+
+router.get(
   "/domes",
   isLoggedIn,
   wrapAsync(async (req, res) => {

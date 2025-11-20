@@ -118,11 +118,11 @@
   </div>
 </div>
 <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1 mt-3">
-  <% for(let list of listings) { %> <% if(list.category == "arctic"){ %>
+  <% for(let list of listings) { %> <% if(list.category == "Arctic"){ %>
   <a href="/listings/<%=list._id%>" style="text-decoration: none">
     <div class="card col listing-card">
       <img
-        src="<%=list.image.url%>"
+        src="<%=list.images[0].url%>"
         class="card-img-top"
         alt="..."
         style="height: 20rem"

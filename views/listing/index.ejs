@@ -2,6 +2,7 @@
 
 <style>
   #filters {
+    width: 100%;
     display: flex;
     /* flex-wrap: wrap; */
     align-items: center;
@@ -40,11 +41,13 @@
 
 <div id="filters">
   <div class="filter">
-    <div><i class="fa-solid fa-fire"></i></div>
-    <p>Trending</p>
+    <a href="/listings/category/trending"
+      ><div><i class="fa-solid fa-fire"></i></div>
+      <p>Trending</p></a
+    >
   </div>
 
-  <div class="filter">
+  <div class="filter" data-toggle="collapse">
     <a href="/listings/category/rooms"
       ><div><i class="fa-solid fa-bed"></i></div>
       <p>Rooms</p></a
@@ -103,7 +106,6 @@
       <p>Domes</p></a
     >
   </div>
-
   <div class="tax-toggle">
     <div class="form-check-reverse form-switch">
       <input
@@ -123,13 +125,21 @@
   <% for(let list of listings) { %>
   <a href="/listings/<%=list._id%>" style="text-decoration: none">
     <div class="card col listing-card">
+      <% if (list.images && list.images.length > 0) { %>
       <img
-        src="<%=list.image.url%>"
+        src="<%= list.images[0].url %>"
         class="card-img-top"
-        alt="..."
-        style="height: 20rem"
+        alt="<%= list.title %>"
+        style="height: 20em"
       />
-      <div class="card-img-overlay"></div>
+      <% } else { %>
+      <img
+        src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400"
+        class="card-img-top"
+        alt="No image available"
+        style="height: 20em"
+      />
+      <% } %>
       <div class="card-body">
         <p class="card-text">
           <b><%=list.title%></b> <br />

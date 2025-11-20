@@ -39,8 +39,10 @@
 </style>
 <div id="filters">
   <div class="filter">
-    <div><i class="fa-solid fa-fire"></i></div>
-    <p>Trending</p>
+    <a href="/listings/category/trending">
+      <div><i class="fa-solid fa-fire"></i></div>
+      <p>Trending</p></a
+    >
   </div>
 
   <div class="filter">
@@ -102,6 +104,7 @@
       <p>Domes</p></a
     >
   </div>
+
   <div class="tax-toggle">
     <div class="form-check-reverse form-switch">
       <input
@@ -117,7 +120,9 @@
   </div>
 </div>
 <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1 mt-3">
-  <% for(let list of listings) { %> <% if(list.category == "Cities"){ %>
+  <% for(let list of listings) { %> <% if(list.title == "Mattertal Lodge" ||
+  list.title == "Château de Moulède - Bedroom 7"|| list.title == "Tvum Suites"){
+  %>
   <a href="/listings/<%=list._id%>" style="text-decoration: none">
     <div class="card col listing-card">
       <img

@@ -37,7 +37,7 @@
           <option value="Farms">Farms</option>
           <option value="Camping">Camping</option>
           <option value="Arctic">Arctic</option>
-          <option value="Iconic Cities">Iconic Cities</option>
+          <option value="Cities">Cities</option>
           <option value="Castles">Castles</option>
         </select>
       </div>
@@ -58,13 +58,31 @@
       </div>
 
       <div class="mb-3">
-        Original Image <br />
-        <img src="<%=originalImageUrl %>" alt="" width="350px" height="250px" />
+        <% if (listing.images && listing.images.length > 0) { %>
+        <label class="form-label">Current Images</label><br />
+        <div class="row">
+          <% listing.images.forEach((image, index) => { %>
+          <div class="col-md-4 mb-2">
+            <img
+              src="<%= image.url %>"
+              alt="Image <%= index + 1 %>"
+              class="img-thumbnail"
+              style="width: 100%; height: 150px; object-fit: cover"
+            />
+          </div>
+          <% }) %>
+        </div>
+        <% } %>
       </div>
 
       <div class="mb-3">
         <label for="image" class="form-label">Upload New Image</label>
-        <input type="file" name="listing[image]" class="form-control" />
+        <input
+          type="file"
+          name="listing[image]"
+          class="form-control"
+          multiple
+        />
         <div class="invalid-feedback">Enter valid Image url</div>
       </div>
       <div class="row">

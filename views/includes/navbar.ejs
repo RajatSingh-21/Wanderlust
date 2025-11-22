@@ -1,80 +1,107 @@
-<style>
-  .search-btn {
-    background-color: #fe424d;
-    color: #ffffff;
-    border-radius: 25px;
-    padding: 0 1rem 0 1rem;
-  }
-  .search-btn:hover {
-    background-color: #fe424d;
-    color: #ffffff;
-  }
-  .search-btn i {
-    display: inline;
-    margin-right: 0.5rem;
-  }
-  .search-inp {
-    border-radius: 25px;
-    padding: 0.5rem 3rem 0.5rem 3rem;
-    font-size: 1rem;
-  }
-  img {
-    height: 65px;
-    width: 65px;
-  }
-</style>
+<nav
+  class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm"
+>
+  <div class="container-fluid px-4">
+    <!-- Logo & Brand -->
+    <a class="navbar-brand d-flex align-items-center" href="/listings">
+      <img
+        src="https://cdn-icons-png.flaticon.com/128/826/826070.png"
+        alt="Wanderlust Logo"
+        style="width: 40px; height: 40px; margin-right: 10px"
+      />
+      <span style="font-weight: 700; font-size: 1.5rem; color: #ff385c">
+        Wanderlust
+      </span>
+    </a>
 
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-  <div class="container-fluid">
+    <!-- Mobile Toggle Button -->
     <button
-      class="navbar-toggler"
+      class="navbar-toggler border-0"
       type="button"
       data-bs-toggle="collapse"
       data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
 
+    <!-- Navbar Content -->
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" href="/listings"
-          ><img
-            src="https://cdn-icons-png.flaticon.com/128/826/826070.png"
-            alt=""
-          />&nbsp;<b>Wanderlust</b></a
-        >
-      </div>
-
-      <div class="navbar-nav ms-auto">
+      <!-- Search Form - Center -->
+      <div class="navbar-nav mx-auto">
         <form
-          class="d-flex"
+          class="d-flex search-form"
           role="search"
           action="/listings/category/search"
-          novalidate
-          class="needs-validation"
           method="POST"
-          enctype="multipart/form-data"
+          novalidate
         >
-          <input
-            class="form-control me-2 search-inp"
-            type="search"
-            placeholder="Search destinations"
-            class="form-control"
-            name="search"
-          />
-          <button class="btn search-btn" type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>Search
-          </button>
+          <div
+            class="input-group shadow-sm"
+            style="border-radius: 50px; overflow: hidden"
+          >
+            <input
+              class="form-control border-0 ps-4"
+              type="text"
+              placeholder="Search destinations..."
+              name="search"
+              required
+              minlength="1"
+              style="border-radius: 50px 0 0 50px"
+            />
+            <button
+              class="btn btn-danger"
+              type="submit"
+              style="border-radius: 0 50px 50px 0; padding: 0 20px"
+            >
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
         </form>
       </div>
 
-      <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="/listings/new"><b>Create Listing</b></a>
+      <!-- Right Side Nav Items -->
+      <div class="navbar-nav ms-auto d-flex align-items-center gap-2">
         <% if(!currUser) { %>
-        <a class="nav-link" href="/signup"><b>Sign Up</b></a>
-        <a class="nav-link" href="/login"><b>Login</b></a>
-        <% } %> <% if(currUser){ %>
-        <a class="nav-link" href="/logout"><b>Log Out</b></a>
+        <!-- Not Logged In -->
+        <a class="nav-link" href="/signup">
+          <button
+            class="btn btn-outline-dark px-4"
+            style="border-radius: 25px; font-weight: 500"
+          >
+            Sign Up
+          </button>
+        </a>
+        <a class="nav-link" href="/login">
+          <button
+            class="btn btn-dark px-4"
+            style="border-radius: 25px; font-weight: 500"
+          >
+            Log In
+          </button>
+        </a>
+        <% } else { %>
+        <!-- Logged In -->
+        <a class="nav-link" href="/listings/new">
+          <button
+            class="btn btn-danger px-4 d-flex align-items-center gap-2"
+            style="border-radius: 25px; font-weight: 500"
+          >
+            <i class="fa-solid fa-plus"></i>
+            Create Listing
+          </button>
+        </a>
+        <a class="nav-link" href="/logout">
+          <button
+            class="btn btn-outline-danger px-4 d-flex align-items-center gap-2"
+            style="border-radius: 25px; font-weight: 500"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Log Out
+          </button>
+        </a>
         <% } %>
       </div>
     </div>

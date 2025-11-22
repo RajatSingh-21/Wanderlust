@@ -6,6 +6,7 @@ module.exports.index = async (req, res) => {
 };
 
 module.exports.renderNewForm = (req, res) => {
+  console.log(req.body);
   res.render("listing/new.ejs");
 };
 
@@ -24,6 +25,7 @@ module.exports.showListing = async (req, res) => {
 };
 
 module.exports.createListing = async (req, res, next) => {
+  // console.log(req.body);
   let url = req.files.map((file) => file.path);
   let filenames = req.files.map((file) => file.filename);
   const newListing = new Listing(req.body.listing); //creates new instance
@@ -32,7 +34,11 @@ module.exports.createListing = async (req, res, next) => {
     url: file.path,
     filename: file.filename,
   }));
-  console.log(req.body.listing.category);
+  newListing.geometry = {
+    type: "Point",
+    coordinates: [78.9629, 20.5937], // [longitude, latitude]
+  };
+  console.log(req.body);
   await newListing.save();
   req.flash("success", "New Lisiting Created");
   res.redirect("/listings");

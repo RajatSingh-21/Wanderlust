@@ -6,6 +6,7 @@ body {
 }
 .container {
   flex: 1;
+  margin: 0;
 }
 /* Navbar */
 .navbar {
@@ -62,7 +63,7 @@ body {
   object-fit: cover !important;
 }
 .card-body {
-  padding: 0 !important;
+  padding: 10px !important;
 }
 .card-text p {
   font-weight: 400 !important;
@@ -93,4 +94,413 @@ body {
 .show-card {
   padding-left: 0;
   padding-right: 0;
+}
+/* Enhanced Card Hover Effects */
+.listing-card {
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.listing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.listing-card img {
+  transition: transform 0.3s ease;
+}
+
+.listing-card:hover img {
+  transform: scale(1.05);
+}
+
+.listing-card .card-body {
+  padding: 1.25rem;
+}
+
+/* Location Icon Styling */
+.location-info {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.location-info i {
+  color: #fe424d;
+  margin-right: 4px;
+}
+/* Carousel Improvements */
+.carousel-inner {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.carousel-indicators button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 8%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.carousel:hover .carousel-control-prev,
+.carousel:hover .carousel-control-next {
+  opacity: 1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 20px;
+}
+/* Avatar Circle */
+.avatar-circle {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* Detail Items */
+.detail-item {
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.detail-item i {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+/* Reviews Styling */
+.review-card {
+  border-left: 3px solid #fe424d;
+  transition: all 0.2s;
+}
+
+.review-card:hover {
+  border-left-color: #667eea;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.review-author {
+  font-weight: 600;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.review-author::before {
+  content: "👤";
+  font-size: 1.2rem;
+}
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .listing-card {
+    margin-bottom: 1.5rem;
+  }
+
+  .carousel-inner {
+    height: 250px;
+  }
+
+  .carousel-inner img {
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .filter {
+    font-size: 0.85rem;
+    padding: 0.75rem 0.5rem;
+  }
+}
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .listing-card {
+    margin-bottom: 1.5rem;
+  }
+
+  .carousel-inner {
+    height: 300px !important;
+  }
+
+  .filter {
+    padding: 8px 12px;
+  }
+
+  .filter i {
+    font-size: 1.2rem;
+  }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Loading Animation */
+.card-img-top {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s ease-in-out infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .listing-card {
+    margin-bottom: 1.5rem;
+  }
+
+  .carousel-inner {
+    height: 300px !important;
+  }
+
+  .filter {
+    padding: 8px 12px;
+  }
+
+  .filter i {
+    font-size: 1.2rem;
+  }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Loading Animation */
+.card-img-top {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s ease-in-out infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+/* BETTER Listing Card Styles - No Cramping */
+.listing-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+}
+
+.listing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+  border-color: #d0d0d0 !important;
+}
+
+/* Image container - prevents cramping */
+.listing-card .card-img-top {
+  transition: transform 0.4s ease;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+/* Only zoom image, not the entire card */
+.listing-card:hover .card-img-top {
+  transform: scale(1.08);
+}
+
+/* Card body spacing - prevents content shift */
+.listing-card .card-body {
+  padding: 1.25rem;
+  background: white;
+  position: relative;
+  z-index: 1;
+}
+
+/* Remove default Bootstrap card border */
+.card {
+  border: none;
+}
+
+/* Link styling - no underline or color change */
+a:has(.listing-card) {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+a:has(.listing-card):hover {
+  text-decoration: none;
+  color: inherit;
+}
+/* Container adjustments */
+.container {
+  max-width: 1400px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Card grid spacing */
+.row.g-4 {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 1.5rem;
+}
+/* QUICK FIX - Add to bottom of your CSS */
+.listing-card {
+  border: 1px solid #e5e5e5 !important;
+  overflow: hidden !important;
+}
+
+.listing-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Prevent image from affecting card size */
+.listing-card img {
+  display: block;
+  width: 100%;
+}
+.listing-card {
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.listing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+/* map */
+#map {
+  height: 200px;
+  width: 750px;
+}
+/* ========== NAVBAR STYLES ========== */
+.navbar {
+  padding: 0.75rem 0;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+/* Search Form Styling */
+.search-form {
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-form .input-group {
+  border: 1px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+.search-form .input-group:focus-within {
+  border-color: #ff385c;
+  box-shadow: 0 4px 12px rgba(255, 56, 92, 0.15);
+  transform: translateY(-2px);
+}
+
+.search-form input:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+/* Button Hover Effects */
+.btn {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.btn-outline-dark:hover {
+  background-color: #212529;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-dark:hover {
+  background-color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn-danger:hover {
+  background-color: #e31c5f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 56, 92, 0.3);
+}
+
+.btn-outline-danger:hover {
+  background-color: #ff385c;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 56, 92, 0.3);
+}
+
+/* Mobile Responsive */
+@media (max-width: 991px) {
+  .search-form {
+    max-width: 100%;
+    margin: 1rem 0;
+  }
+
+  .navbar-nav.ms-auto {
+    margin-top: 1rem;
+  }
+
+  .navbar-nav .nav-link {
+    margin-bottom: 0.5rem;
+  }
+}
+/* Custom Map Popup Styling */
+.leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.leaflet-popup-content {
+  margin: 12px;
+  font-family: inherit;
+}
+
+.leaflet-popup-tip {
+  background: white;
 }

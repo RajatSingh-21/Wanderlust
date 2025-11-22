@@ -20,9 +20,30 @@ router.post(
   "/search",
   isLoggedIn,
   wrapAsync(async (req, res) => {
-    let { search } = req.params;
-    const listings = await Listing.find({});
-    res.render("./listing/category/search.ejs", { listings });
+    let { search } = req.body;
+
+    // Trim and validate search input
+    search = search ? search.trim() : "";
+
+    // If search is empty, redirect back
+    if (!search || search.length === 0) {
+      req.flash("error", "Please enter a search term");
+      return res.redirect("/listings");
+    }
+
+    console.log("Search query:", search);
+
+    // Ensure search is a string before using regex
+    const listings = await Listing.find({
+      $or: [
+        { title: { $regex: search.toString(), $options: "i" } },
+        { country: { $regex: search.toString(), $options: "i" } },
+        { location: { $regex: search.toString(), $options: "i" } },
+      ],
+    });
+
+    console.log("Listings found:", listings.length);
+    res.render("./listing/category/search.ejs", { listings, search });
   })
 );
 

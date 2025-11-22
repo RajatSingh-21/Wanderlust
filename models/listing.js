@@ -43,6 +43,17 @@ const listingSchema = new Schema({
       "Arctic",
       "Domes",
     ],
+    geometry: {
+      type: {
+        type: String,
+        enum: ["Point"],
+        default: "Point",
+      },
+      coordinates: {
+        type: [Number],
+        default: [78.9629, 20.5937], // Default: India center
+      },
+    },
     required: true,
   },
 });

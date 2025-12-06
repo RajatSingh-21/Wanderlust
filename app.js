@@ -94,9 +94,9 @@ app.use("/listings/category", categoryRouter);
 app.get("/listings", (req, res) => {
   res.send("Server running successfully");
 });
-// app.all("*", (req, res, next) => {
-//   next(new ExpressError(404, "Page not found"));
-// });
+app.all("*", (req, res, next) => {
+  next();
+});
 //ERROR HANDLING MIDDLEWARES
 app.use((err, req, res, next) => {
   let { statusCode = 500, message = "something went wrong" } = err;

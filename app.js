@@ -91,9 +91,6 @@ app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
 app.use("/listings/category", categoryRouter);
 
-app.listen("8080", () => {
-  console.log("app is listening on 8080");
-});
 app.get("/listings", (req, res) => {
   res.send("Server running successfully");
 });
@@ -104,4 +101,7 @@ app.get("/listings", (req, res) => {
 app.use((err, req, res, next) => {
   let { statusCode = 500, message = "something went wrong" } = err;
   res.render("Error.ejs", { message });
+});
+app.listen("8080", () => {
+  console.log("app is listening on 8080");
 });

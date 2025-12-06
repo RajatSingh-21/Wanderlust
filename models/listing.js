@@ -57,6 +57,7 @@ const listingSchema = new Schema({
     required: true,
   },
 });
+//later mongoose middleware
 listingSchema.post("findOneAndDelete", async (listing) => {
   if (listing) {
     let del = await Review.deleteMany({ _id: { $in: listing.reviews } });
@@ -64,6 +65,5 @@ listingSchema.post("findOneAndDelete", async (listing) => {
   }
 });
 
-//-
 const Listing = mongoose.model("Listing", listingSchema); //model // collection name //schema name
 module.exports = Listing;

@@ -12,6 +12,7 @@ const ExpressError = require("./utils/ExpressError.js");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
+
 const passport = require("passport"); //authentication
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
@@ -66,7 +67,6 @@ const sessionOptions = {
     httpOnly: true,
   },
 };
-
 app.use(session(sessionOptions));
 app.use(flash());
 
@@ -97,9 +97,9 @@ app.listen("8080", () => {
 app.get("/listings", (req, res) => {
   res.send("Server running successfully");
 });
-app.all("*", (req, res, next) => {
-  next(new ExpressError(404, "Page not found"));
-});
+// app.all("*", (req, res, next) => {
+//   next(new ExpressError(404, "Page not found"));
+// });
 //ERROR HANDLING MIDDLEWARES
 app.use((err, req, res, next) => {
   let { statusCode = 500, message = "something went wrong" } = err;

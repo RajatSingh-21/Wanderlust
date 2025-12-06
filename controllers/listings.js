@@ -73,7 +73,7 @@ module.exports.updateListing = async (req, res) => {
 
 module.exports.destroyListing = async (req, res) => {
   let { id } = req.params;
-  let deleted = await Listing.findByIdAndDelete(id);
+  let deleted = await Listing.findByIdAndDelete(id); //calls post mongoose middleware
   console.log(deleted);
   req.flash("success", "Lisiting Deleted");
   res.redirect("/listings");

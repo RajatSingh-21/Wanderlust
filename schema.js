@@ -12,7 +12,7 @@ module.exports.listingSchema = Joi.object({
     category: Joi.string().allow("", null).required(),
   }).required(), //name = listing
 });
-//this chema is for server-side validaiton and is different from schema created for model
+//this schema is for server-side validaiton and is different from schema created for model
 module.exports.reviewSchema = Joi.object({
   review: Joi.object({
     rating: Joi.number().required().min(1).max(5),
